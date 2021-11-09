@@ -6,7 +6,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element="Welcome Hello" />
+        <Route exact path="/" element={<h1>Welcome, I am App</h1>} />
         <Route path="/greeting" element={< Greeting />} />
       </Routes>
     </BrowserRouter>
