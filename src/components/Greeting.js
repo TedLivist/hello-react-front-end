@@ -1,26 +1,24 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { getGreeting } from '../helpers/getGreeting';
+import { useSelector, useDispatch } from 'react-redux';
+import getGreeting from '../helpers/getGreeting';
 import { displayGreeting } from '../redux/greetings/greetings';
 
-
 const Greeting = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getGreeting()
-      dispatch(displayGreeting(data))
+      const data = await getGreeting();
+      dispatch(displayGreeting(data));
     }
-    fetchData()
-  }, [dispatch])
+    fetchData();
+  }, [dispatch]);
 
-  const greeting = useSelector((state) => state.greetingsReducer.greeting)
+  const greeting = useSelector((state) => state.greetingsReducer.greeting);
 
   return (
     <h1>{greeting && greeting.message}</h1>
   );
-}
- 
+};
+
 export default Greeting;
